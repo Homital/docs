@@ -5,7 +5,7 @@ const barConfig = getConfig(
         skipEmptySidebar: true,
         skipEmptyNavbar: true,
         addReadMeToFirstGroup: false,
-        maxLevel: 1,
+        maxLevel: 2,
         stripNumbers: true,
         multipleSideBar: false
     }
