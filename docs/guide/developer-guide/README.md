@@ -22,7 +22,11 @@ TBC
 
 ### Smart Device
 
+![Smart Device](../assets/smart_device.png)
+
 ### Smart Speaker
+
+![Smart Speaker](../assets/smart_speaker.png)
 
 ## Implementation
 
