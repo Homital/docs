@@ -1,8 +1,14 @@
 const getConfig = require("vuepress-bar");
 const barConfig = getConfig(
     `${__dirname}/..`,
-    {skipEmptySidebar: true, 
-    addReadMeToFirstGroup:false}
+    {
+        skipEmptySidebar: true,
+        skipEmptyNavbar: true,
+        addReadMeToFirstGroup: false,
+        maxLevel: 1,
+        stripNumbers: true,
+        multipleSideBar: false
+    }
 )
 
 module.exports = {
@@ -13,6 +19,7 @@ module.exports = {
         smoothScroll: true,
         nav: [
             { text: 'Home', link: '/' },
+            //...barConfig.nav,
             {
                 text: 'Guide',
                 ariaLabel: 'Guide Menu',
@@ -30,6 +37,7 @@ module.exports = {
         docsDir: 'docs',
         docsBranch: 'docs',
         editLinks: true,
-        editLinkText: 'Help us improve this page!'
+        editLinkText: 'Help us improve this page!',
+        displayAllHeaders: false // Default: false
     }
 }
