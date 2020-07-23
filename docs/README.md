@@ -3,14 +3,14 @@ home: true
 #heroImage: /hero.png
 heroText: Homital
 tagline: The ultimate smart home ecosystem
-actionText: Get Started →
+actionText: User Guide →
 actionLink: /guide/user-guide/
 features: #to be changed
 - title: Simplicity First
-  details: Minimal setup with markdown-centered project structure helps you focus on writing.
-- title: Vue-Powered
-  details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
-- title: Performant
-  details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
+  details: Easy to set up and start using
+- title: Runs Everywhere
+  details: The client app can run on Android, IOS, and in the browser
+- title: Modular Design
+  details: It is very easy to add custom components to the server because of its modular design
 footer: Copyright © 2020 Team Homital
 ---
