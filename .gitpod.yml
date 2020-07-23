@@ -1,5 +1,6 @@
 tasks:
   - init: yarn install
+    command: yarn docs:dev
 
 vscode:
   extensions:
