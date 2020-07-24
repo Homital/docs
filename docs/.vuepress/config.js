@@ -8,8 +8,8 @@ const barConfig = getConfig(
         maxLevel: 2,
         stripNumbers: true,
         multipleSideBar: false
-    }
-)
+    },
+);
 
 module.exports = {
     title: 'Homital',
@@ -21,13 +21,13 @@ module.exports = {
             { text: 'Home', link: '/' },
             //...barConfig.nav,
             {
-                text: 'Guide',
-                ariaLabel: 'Guide Menu',
+                text: 'Documentation',
+                ariaLabel: 'Doc Menu',
                 items: [
                     { text: 'User Guide', link: '/guide/user-guide/' },
-                    { text: 'Developer Guide', link: '/guide/developer-guide/' }
-                ]
-            }
+                    { text: 'Developer Guide', link: '/guide/developer-guide/' },
+                ],
+            },
         ],
         sidebar: barConfig.sidebar,
         lastUpdated: 'Last Updated', // string | boolean
@@ -37,6 +37,6 @@ module.exports = {
         docsBranch: 'docs',
         editLinks: true,
         editLinkText: 'Help us improve this page!',
-        displayAllHeaders: false // Default: false
-    }
-}
+        displayAllHeaders: false, // Default: false
+    },
+};

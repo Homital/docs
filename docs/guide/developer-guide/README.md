@@ -1,5 +1,9 @@
 # Developer Guide
 
+[[toc]]
+
+## Overview
+
 Here is the overall architecture of the Homital Project (some components are to be implemented in the future):
 
 ::: danger
@@ -36,6 +40,10 @@ Emm of course this diagram will soon be updated
 :::
 
 ![Backend](../assets/backend_diagram.png)
+
+Once correctly set up, Homital-Core exposes all its services as APIs at `http://homital.ml:2333/api/` or 'https://homital.ml:2333/api/' if ran in production mode. It is also possible to specify the port as a command line argument.
+
+The API documentation can be found [here](https://app.swaggerhub.com/apis-docs/Homital/Homital-Core/0.1.0/)
 
 ### Local Setup
 
@@ -95,6 +103,47 @@ If you followed the manual setup above and installed `Homital/WebHook`, it would
 
 ![webhook setup](../assets/webhook_setup.png)
 
+
+### Project Structure
+
+```
+.
+├── .github (GitHub configuration files)
+│   └── ISSUE_TEMPLATE
+│   │   └── ...
+│   │ 
+├── app
+│   ├── db (Database models and functions)
+│   │   ├── models (Schema and model definitions)
+│   │   │   ├── device.js (Device model)
+│   │   │   ├── room.js (Room model)
+│   │   │   ├── status.js (Status model)
+│   │   │   ├── token.js (Token model)
+│   │   │   └── user.js (User model)
+│   │   └── db.js (Database functions)
+│   │ 
+│   ├── routers (Routers)
+│   │   │── api.js (Routes all API requests to their specific endpoints)
+│   │   │── auth.js (Handles authentication requests)
+│   │   │── device.js (Handles requests from devices)
+│   │   │── deviceupdates.js (Handles device update requests)
+│   │   └── user.js (Handles user requests)
+│   │ 
+│   ├── utils (Shared utilities)
+│   │   └── utils.js
+│   │ 
+│   └── index.js (App entry point)
+│ 
+│── .eslintrc.yml
+│── .gitignore
+│── .gitpod.yml
+│── .remarkrc
+│── README.md
+│── package-lock.json
+│── package.json
+└── serve_log.js (Serves logs to aid development)
+```
+
 ## Homital-App
 
 [GitHub](https://github.com/Homital/Homital-App)
@@ -125,6 +174,10 @@ Homital.github.io holds this documentation. It is developed with [VuePress](http
 It is very straight forward to edit the documentations with [Gitpod](https://gitpod.io/). Click on the following badge will open a Gitpod session, which automatically installs all dependencies and start up a development server for preview. The development server theoretically supports hot-reloading, but whether it works or not depends entirely on your luck at the time being :<
 
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Homital/Homital.github.io)
+
+### Deployment
+
+The npm script `docs:build` is used here for generating static site. Run it with `yarn docs:build` and the static files will be generated in `docs/.vuepress/dist`.
 
 ### Continuous Integration
 
@@ -160,6 +213,7 @@ To configure the CI process, edit `.travis.yml` file.
 └── yarn.lock
 ```
 
+
 ## Design
 
 ### Architecture
@@ -173,14 +227,6 @@ To configure the CI process, edit `.travis.yml` file.
 ### Smart Device
 
 ![Smart Device](../assets/smart_device.png)
-
-## Setting up
-
-## Implementation
-
-## Documentation
-
-Vuepress intro, gitpod setup
 
 ## Testing
 
