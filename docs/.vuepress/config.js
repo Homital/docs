@@ -25,8 +25,7 @@ module.exports = {
                 ariaLabel: 'Guide Menu',
                 items: [
                     { text: 'User Guide', link: '/guide/user-guide/' },
-                    { text: 'Developer Guide', link: '/guide/developer-guide/' },
-                    { text: 'Business Guide', link: '/guide/business-guide/' }
+                    { text: 'Developer Guide', link: '/guide/developer-guide/' }
                 ]
             }
         ],
