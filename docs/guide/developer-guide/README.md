@@ -45,7 +45,56 @@ Once correctly set up, Homital-Core exposes all its services as APIs at `http://
 
 The API documentation can be found [here](https://app.swaggerhub.com/apis-docs/Homital/Homital-Core/0.1.0/)
 
-### Local Setup
+### Project Structure
+
+```
+.
+├── .github (GitHub configuration files)
+│   └── ISSUE_TEMPLATE
+│   │   └── ...
+│   │ 
+├── app
+│   ├── db (Database models and functions)
+│   │   ├── models (Schema and model definitions)
+│   │   │   ├── device.js (Device model)
+│   │   │   ├── room.js (Room model)
+│   │   │   ├── status.js (Status model)
+│   │   │   ├── token.js (Token model)
+│   │   │   └── user.js (User model)
+│   │   └── db.js (Database functions)
+│   │ 
+│   ├── routers (Routers)
+│   │   │── api.js (Routes all API requests to their specific endpoints)
+│   │   │── auth.js (Handles authentication requests)
+│   │   │── device.js (Handles requests from devices)
+│   │   │── deviceupdates.js (Handles device update requests)
+│   │   └── user.js (Handles user requests)
+│   │ 
+│   ├── utils (Shared utilities)
+│   │   └── utils.js
+│   │ 
+│   └── index.js (App entry point)
+│ 
+├── tests
+│   ├── API_tests
+│   │   ├── Homital.postman_collection.json (Postman Collection)
+│   │   ├── Homital.postman_environment.json (Postman Environment)
+│   │   └── Homital.postman_test_run.json (Postman test result)
+│   └── unit_tests
+│       └── test.js (Mocha test script)
+│── .eslintrc.yml
+│── .gitignore
+│── .gitpod.yml
+│── .remarkrc
+│── README.md
+│── package-lock.json
+│── package.json
+└── serve_log.js (Serves logs to aid development)
+```
+
+### Setup
+
+#### Local Setup
 
 Follow the steps below to set up the project on a Ubuntu server.
 
@@ -89,7 +138,7 @@ missing `npm install`, if no time, ignore the issue and delete this block
 
 [![asciicast](https://asciinema.org/a/349158.svg)](https://asciinema.org/a/349158)
 
-### Cloud Setup
+#### Cloud Setup
 
 It is possible to develop Homital-Core in the cloud using [Gitpod](https://gitpod.io/) as long as you have a stable connection.
 
@@ -97,52 +146,63 @@ Click on the following badge to open Homital-Core in Gitpod: [![Gitpod Ready-to-
 
 When Gitpod opens the repository, it will automatically install Node.js dependencies, so there is no need to do `npm install`. However, you still need to create and edit the `.env` file. as seen in the last section (step3).
 
-### Continuous Integration
+#### Continuous Integration
 
 If you followed the manual setup above and installed `Homital/WebHook`, it would listen to port `8888` for incoming `POST` requests. A `POST` request will trigger a `git pull` to get the latest updates from GitHub. To automatically update when the code on GitHub is updated, open the repo on GitHub, go to `Settings` -> `Webhooks` -> `Add webhook`, and put `http://<SERVER-IP-ADDRESS-OR-DOMAIN>:8888` in the `Payload URL` field. `Content type` and `secret` do not matter. Under `Which events would you like to trigger this webhook?`, choose `Just the push event`, and mark it `active`. Save the new webhook. If confused, see the picture below.
 
 ![webhook setup](../assets/webhook_setup.png)
 
+### Testing
 
-### Project Structure
+#### Unit Testing
 
-```
-.
-├── .github (GitHub configuration files)
-│   └── ISSUE_TEMPLATE
-│   │   └── ...
-│   │ 
-├── app
-│   ├── db (Database models and functions)
-│   │   ├── models (Schema and model definitions)
-│   │   │   ├── device.js (Device model)
-│   │   │   ├── room.js (Room model)
-│   │   │   ├── status.js (Status model)
-│   │   │   ├── token.js (Token model)
-│   │   │   └── user.js (User model)
-│   │   └── db.js (Database functions)
-│   │ 
-│   ├── routers (Routers)
-│   │   │── api.js (Routes all API requests to their specific endpoints)
-│   │   │── auth.js (Handles authentication requests)
-│   │   │── device.js (Handles requests from devices)
-│   │   │── deviceupdates.js (Handles device update requests)
-│   │   └── user.js (Handles user requests)
-│   │ 
-│   ├── utils (Shared utilities)
-│   │   └── utils.js
-│   │ 
-│   └── index.js (App entry point)
-│ 
-│── .eslintrc.yml
-│── .gitignore
-│── .gitpod.yml
-│── .remarkrc
-│── README.md
-│── package-lock.json
-│── package.json
-└── serve_log.js (Serves logs to aid development)
-```
+`test/unit_tests/test.js` is a Mocha test script that tests all non-database-related functions.
+
+Run it with `npm test`.
+
+![unit tests](../assets/unit_testing.png)
+
+#### API Testing
+
+The `test/API_tests` folder contains Postman collection with test scripts for all listed APIs and environment variables.
+
+- `Homital.postman_collection.json` is a Postman Collection
+- `Homital.postman_environment.json` is a Postman Environment
+- `Homital.postman_test_run.json` is the Postman test results
+
+Download `Homital.postman_collection.json` and `Homital.postman_environment.json`.
+
+Import the two files:
+
+![Postman1](../assets/postman1.png)
+
+![Postman2](../assets/postman2.png)
+
+![Postman3](../assets/postman3.png)
+
+![Postman4](../assets/postman4.png)
+
+Select the imported environment:
+
+![Postman5](../assets/postman5.png)
+
+Check the environment:
+
+![Postman6](../assets/postman6.png)
+
+Run collection:
+
+![Postman7](../assets/postman7.png)
+
+![Postman8](../assets/postman8.png)
+
+Select options and run:
+
+![Postman9](../assets/postman9.png)
+
+Results:
+
+![API tests](../assets/postman_results.png)
 
 ## Homital-App
 
