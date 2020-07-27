@@ -31,7 +31,7 @@ Homital-Core is the backend of the Homital system.
 
 ### Architecture
 
-Once correctly set up, Homital-Core exposes all its services as APIs at `http://homital.ml:2333/api/` or 'https://homital.ml:2333/api/' if ran in production mode. It is also possible to specify the port as a command line argument.
+Once correctly set up, Homital-Core exposes all its services as APIs at `http://homital.ml:2333/api/` or `https://homital.ml:2333/api/` if ran in production mode. It is also possible to specify the port as a command line argument.
 
 The API documentation can be found [here](https://app.swaggerhub.com/apis-docs/Homital/Homital-Core/0.1.0/)
 
@@ -90,31 +90,31 @@ Follow the steps below to set up the project on a Ubuntu server.
 
 1. Open a shell session (maybe through SSH)
 2. Install pre-requisites:
-  - Python 3 (Miniconda)
-    - Update package information: `sudo apt update`
-    - Install curl and git: `sudo apt install curl git`
-    - Download and install Miniconda: `sh -c "$(curl -fsSL https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh)"`
-      - During the installation, you will be prompted to choose where to install Miniconda, if you are not sure what this means, just use the default location
-      - When the installation finishes, it will show some bash commands which should have been automatically appended to your bashrc, if you are using another shell like zsh, copy the commands to the respective rc file and load the file: `source <YOUR-RC-FILE>`
-    - Test Python installation: `python --version`
-  - Node.js
-    - Install NVM (Node Version Manager): `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`
-    - Follow the instructions to append the provided commands to the end of your shell's rc file and load the file
-    - Verify the installation: `command -v nvm`
-    - Install the latest LTS version of node: `nvm install node`
-    - Test the node installation: `node -v`
+   - Python 3 (Miniconda)
+     - Update package information: `sudo apt update`
+     - Install curl and git: `sudo apt install curl git`
+     - Download and install Miniconda: `sh -c "$(curl -fsSL https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh)"`
+       - During the installation, you will be prompted to choose where to install Miniconda, if you are not sure what this means, just use the default location
+       - When the installation finishes, it will show some bash commands which should have been automatically appended to your bashrc, if you are using another shell like zsh, copy the commands to the respective rc file and load the file: `source <YOUR-RC-FILE>`
+     - Test Python installation: `python --version`
+   - Node.js
+     - Install NVM (Node Version Manager): `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`
+     - Follow the instructions to append the provided commands to the end of your shell's rc file and load the file
+     - Verify the installation: `command -v nvm`
+     - Install the latest LTS version of node: `nvm install node`
+     - Test the node installation: `node -v`
 3. Clone the repository: `git clone https://github.com/Homital/Homital-Core.git`
 4. Inside the cloned folder, run `npm install` to install Node.js dependencies
 3. Create a file `.env` under the root directory of the repository and add the following entries, each on a new line, following by `=<ITS_VALUE>`
-  - `ACCESS_TOKEN_SECRET`
-  - `REFRESH_TOKEN_SECRET`
-  - `HOMITALDB_CONNECTIONSTRING`
-  - `HTTPS_KEY`
-  - `HTTPSCERT`
-  - `NOREPLY_EMAIL_HOST`
-  - `NOREPLY_EMAIL_PORT`
-  - `NOREPLY_EMAIL_ADDR`
-  - `NOREPLY_EMAIL_PASS`
+   - `ACCESS_TOKEN_SECRET`
+   - `REFRESH_TOKEN_SECRET`
+   - `HOMITALDB_CONNECTIONSTRING`
+   - `HTTPS_KEY`
+   - `HTTPSCERT`
+   - `NOREPLY_EMAIL_HOST`
+   - `NOREPLY_EMAIL_PORT`
+   - `NOREPLY_EMAIL_ADDR`
+   - `NOREPLY_EMAIL_PASS`
 4. To automatically pull the latest commits from GitHub, clone this repository: `git clone https://github.com/Homital/WebHook.git`
 5. Open `config.py` and edit the `GIT_REPO_PATH` value so that it matches the path of the `Homital-Core` repository we just cloned
 6. Install `screen`: `sudo apt update&&sudo apt install screen`
