@@ -238,11 +238,21 @@ Open your serial communication program and connect to Homital-Light's port using
 After a while, you will be prompted to enter commands. This is where you configure your Homital-Light to connect to WiFi and Homital-Core.
 
 Supported commands:
-  - `wifi <SSID> <PASSWORD>` to set your WiFi credentials.
-  - `setByName <HOMITAL_USERNAME> <ROOMNAME> <DEVICENAME>` to configure the device.
-  - `setBy`
+  - `wifi <SSID> <PASSWORD>`
+    - Set your WiFi credentials
+  - `setByName <HOMITAL_USERNAME> <ROOMNAME> <DEVICENAME>`
+    - Configure the device using username, roomname and devicename (must match what you created in Homital App)
+  - `setById <ROOM_UID> <DEVICENAME>`
+    - Configure the device  using room uid and devicename
+    - This command is not recommanded because normally you will not see the uid of rooms in Homital App, unless you are using a third-party client
+
+The picture below shows how to configure Homital-Light using pySerial.
 
 ![pySerial](../assets/pyserial.png)
+
+Now you are ready to control your Homital-Light in Homital-App!
+
+![Light Demo](../assets/homital_light_demo.gif)
 
 <style>
 img
