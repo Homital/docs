@@ -221,7 +221,7 @@ Use a Micro-USB to connect your Homital-Light to your PC. Refer to the picture b
 
 ![Micro-USB connection](../assets/homital-light-micro-usb.jpg)
 
-Notice that some versions of Homital-Light have two Micro-USB female ports. If that's the case, use the one that has a rectangular chip labelled `WCH CH340G` soldered next to it, the chip is shown below. You can also see this chip on the PCB in the picture above.
+Notice that some versions of Homital-Light have two Micro-USB female ports. If that's the case, use the one that has a rectangular chip labelled `WCH CH340G` soldered next to it, the chip is shown below. You can also see this chip on the PCB in the picture above. (Note that the other micro-USB port can be used to power the device)
 
 ![CH340](../assets/ch340.png)
 

@@ -4,11 +4,7 @@
 
 ## Overview
 
-Here is the overall architecture of the Homital Project (some components are to be implemented in the future):
-
-::: danger
-Cross out non-existent parts
-:::
+Here is the overall architecture of the Homital Project (blurred components are to be implemented in the future):
 
 ![Architecture](../assets/architecture_diagram.png)
 
@@ -34,12 +30,6 @@ All of these components will be discussed in separate sections below.
 Homital-Core is the backend of the Homital system.
 
 ### Architecture
-
-::: danger
-Emm of course this diagram will soon be updated
-:::
-
-![Backend](../assets/backend_diagram.png)
 
 Once correctly set up, Homital-Core exposes all its services as APIs at `http://homital.ml:2333/api/` or 'https://homital.ml:2333/api/' if ran in production mode. It is also possible to specify the port as a command line argument.
 
@@ -208,13 +198,114 @@ Results:
 
 [GitHub](https://github.com/Homital/Homital-App)
 
-## Homital-Lamp
+## Homital-Light
 
-[GitHub](https://github.com/)
+[GitHub](https://github.com/Homital/Homital-Light)
+
+Homital-Light is a smart light in the Homital family. It is developed on top of the [ESP8266](https://www.espressif.com/en/products/socs/esp8266/overview) WiFi SoC running [MicroPython](https://micropython.org/). The light source used is a [WS2812B](https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf) LED ring.
+
+### Project Structure
+
+```
+.
+├── 3D Models
+│   ├── Base.SLDPRT (the Base as a SolidWorks 2019 Part)
+│   ├── Base.STL (3D printable STL model of the base)
+│   ├── Head.SLDPRT (3D printable CAD model of the head)
+│   └── Head.STL (The Head as a SolidWorks 2019 Part)
+│ 
+├── upython (MicroPython scripts)
+│   ├── lib (Dependencies)
+│   │   └── urequests.py (a buggy subset of the CPython requests library)
+│   ├── boot.py (the first script getting ran after startup)
+│   ├── db.py (local persistent storage functionalities)
+│   ├── homital.py (networking utilities)
+│   ├── main.py (the script executed right after boot.py)
+│   ├── np.py (WS2812B LED functinos)
+│   └── readcmd.py (Serial command processing functions)
+│ 
+│── .gitignore
+└── README.md (Project Summary)
+```
+
+### Setup
+
+1. Prepare an ESP8266 development board ([the one we use](https://a.aliexpress.com/_dUiLPnV)) and a WS2812B LED ring ([the one we use](https://a.aliexpress.com/_dYrcykT)).
+2. Connect the LED ring's VCC wire to your dev-board's VCC pin, GND to GND, and Date-in to Pin 0 on the dev-board.
+3. Clone the Git repository: `git clone https://github.com/Homital/Homital-Light.git`.
+4. Connect The ESP8266 development board to your PC via a USB-TTL converter or FTDI adapter. If your dev board already has the chip soldered on it, simply use a USB cable.
+5. Download the latest MicroPython firmware from [here](http://micropython.org/download/esp8266/).
+6. Install [Thonny Python IDE](https://thonny.org/)
+7. Open Thonny IDE, go to `Tools` -> `Options` -> `Interpreter` and select MicroPython(ESP8266) from the dropdown menu. Click on the button under `Firmware`, choose your Port and the firmware you just downloaded and click on install.
+
+![Thonny upload firmware](../assets/thonny_firmware.png)
+
+8. Once the firmware has benn uploaded, close the dialog and you should see a Python shell at the bottom of Thonny window.
+
+![Python shell](../assets/firmware_uploaded.png)
+
+9. Then you can open the `/upython` folder in the Files panel of Thonny at the bottom left, and upload all files and directories to the dev-board, as shown below.
+
+![Upload python files](../assets/thonny_upload.png)
+
+10. Now you have given birth to a new Homital-Light! Reset the devboard and you are ready to go. To configure the device to work with the Homital system, refer to [User Guide](/guide/user-guide/#homital-smart-device-configuration).
+
+### 3D Printed Case
+
+We have prepared a 3D printable model for Homital-Light. Below are the two STL files needed, click on the links to see rendered previews and download the files.
+
+- [Base.STL](https://github.com/Homital/Homital-Light/blob/master/3D%20Models/Base.STL)
+- [Head.STL](https://github.com/Homital/Homital-Light/blob/master/3D%20Models/Head.STL)
+
+![3D models](../assets/3d_models.png)
+
+It is recommanded to print the models using a SLA printer because the models are not optimized for FDM printing. A finished print is shown below:
+
+![Printed model](../assets/homital-light.jpg)
 
 ## Homital-USB-Adapter
 
-[GitHub](https://github.com/)
+[GitHub](https://github.com/Homital/Homital-USB-Adapter)
+
+Homital-USB-Adapter is a smart usb adapter of the Homital family. Like [Homital-Light](#homital-light), Homital-USB-Adapter is also developed on top of [ESP8266](https://www.espressif.com/en/products/socs/esp8266/overview) using [MicroPython](https://micropython.org/). The software of Homital-USB-Adapter is a simplified version of that of Homital-Light.
+
+### Project Structure
+
+```
+.
+├── upython (MicroPython scripts)
+│   ├── lib (Dependencies)
+│   │   └── urequests.py (a buggy subset of the CPython requests library)
+│   ├── boot.py (the first script getting ran after startup)
+│   ├── db.py (local persistent storage functionalities)
+│   ├── homital.py (networking utilities)
+│   ├── main.py (the script executed right after boot.py)
+│   ├── np.py (switch functions)
+│   └── readcmd.py (Serial command processing functions)
+└── README.md (Project Summary)
+```
+
+### Setup
+
+1. Prepare an ESP8266 development board ([the one we use](https://a.aliexpress.com/_dUiLPnV)) and a female USB connector.
+2. Connect the USB connector's positive power line to Pin 0 on the ESP8266 dev-board, and negative power line to GND pin on the dev-board.
+3. Clone the Git repository: `git clone https://github.com/Homital/Homital-Light.git`.
+4. Connect The ESP8266 development board to your PC via a USB-TTL converter or FTDI adapter. If your dev board already has the chip soldered on it, simply use a USB cable.
+5. Download the latest MicroPython firmware from [here](http://micropython.org/download/esp8266/).
+6. Install [Thonny Python IDE](https://thonny.org/)
+7. Open Thonny IDE, go to `Tools` -> `Options` -> `Interpreter` and select MicroPython(ESP8266) from the dropdown menu. Click on the button under `Firmware`, choose your Port and the firmware you just downloaded and click on install.
+
+![Thonny upload firmware](../assets/thonny_firmware.png)
+
+8. Once the firmware has benn uploaded, close the dialog and you should see a Python shell at the bottom of Thonny window.
+
+![Python shell](../assets/firmware_uploaded.png)
+
+9. Then you can open the `/upython` folder in the Files panel of Thonny at the bottom left, and upload all files and directories to the dev-board, as shown below.
+
+![Upload python files](../assets/thonny_upload.png)
+
+10. Now you have set up a new Homital-USB-Adapter! Reset the devboard and you are ready to go. To configure the device to work with the Homital system, refer to [User Guide](/guide/user-guide/#homital-smart-device-configuration).
 
 ## Homital.github.io
 
@@ -275,26 +366,27 @@ This project uses Travis for CI. Each push to GitHub `docs` branch will trigger 
 
 To configure the CI process, edit `.travis.yml` file.
 
-
-## Design
-
-### Architecture
-
-### Backend
-
-![Backend](../assets/backend_diagram.png)
-
-### Mobile App
-
-### Smart Device
-
-![Smart Device](../assets/smart_device.png)
-
 ## Dev Ops
 
-## Appendix A: Product Scope
+### Project Management
 
-## Appendix B: User Stories
+We use [GitHub Kanban board](https://github.com/orgs/Homital/projects/1) to track our progress and manage our issues.
+
+We set milestones for major updates in the softwares.
+
+During each milestone, we first propose new features to our softwares and put them as issues on respective GitHub repositories. We then assign issus to our members and set a deadline for each issue.
+
+Whenever a feature is completed, we start writing tests to verify the correctness of the implementation. During this process, we open bug reports as issues on GitHub and assign developers to the issues.
+
+When there is a need to add new APIs or update existing APIs, our members will hold a meeting to discuss on the interface and complete the API documentation in the OpenAPI Specification 3.0 format. We then write API tests using Postman. Then the developers can work on the server and the client seperately.
+
+### Continuous Integration
+
+Many of our softwares, including this documentation site, use [Travis CI](https://travis-ci.com/) for continuous integration.
+
+### Code Review Analysis
+
+We use [Codacy](https://www.codacy.com/), together with [ESLint](https://eslint.org/) and [remarklint](https://github.com/remarkjs/remark-lint) for code quality checking. Code quality badges are put on the top-level README.md files for each repository.
 
 <style>
 img
