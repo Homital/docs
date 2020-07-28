@@ -35,6 +35,10 @@ Once correctly set up, Homital-Core exposes all its services as APIs at `http://
 
 The API documentation can be found [here](https://app.swaggerhub.com/apis-docs/Homital/Homital-Core/0.1.0/)
 
+### Database Model
+
+![Database model](../assets/database.png)
+
 ### Project Structure
 
 ```
