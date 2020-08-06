@@ -9,8 +9,14 @@ This user guide provides users with the complete features in Homital App, as wel
 ## Quickstart
 
 1. Open Homital App. You can use:
-   - either the [web version](https://www.homital.ml/#/)
+   - either the [web version](http://www.homital.ml/#/)
    - or the [native app](https://github.com/Homital/Homital-App/releases/tag/v1.0)
+     - Alternatively, you can install it from [Google Play Store](https://play.google.com/store/apps/details?id=ml.homital.app)
+
+::: warning
+When using H5 version, make sure you use **http** instead of https, since currently the development server is served over HTTP.
+:::
+
 2. Register for an account
 3. Log in and add devices
 4. Configure your devices (see [here](#homital-smart-device-configuration))
