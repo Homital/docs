@@ -5,8 +5,6 @@ name: deploy
 on:
   push:
     branches: [ docs ]
-  pull_request:
-    branches: [ docs ]
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -21,8 +19,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout 🛎️
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
 
       # Runs a set of commands using the runners shell
       - name: Build 🔧
