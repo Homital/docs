@@ -1,17 +1,15 @@
 {
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "lint": "remark ."
+  },
+  "dependencies": {},
   "devDependencies": {
     "remark-cli": "^8.0.1",
     "remark-lint": "^7.0.1",
     "remark-preset-lint-recommended": "^4.0.1",
-    "vuepress": "^1.5.0"
-  },
-  "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "lint": "remark ."
-  },
-  "dependencies": {
-    "vuepress-bar": "^0.3.1"
+    "vitepress": "^0.13.2"
   },
   "license": "UNLICENSED"
 }
