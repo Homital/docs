@@ -1,10 +1,10 @@
 # Homital.github.io
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bac28a80a6aa476ea842fba3730d9abc)](https://app.codacy.com/gh/Homital/Homital.github.io?utm_source=github.com&utm_medium=referral&utm_content=Homital/Homital.github.io&utm_campaign=Badge_Grade_Dashboard)
-![lint](https://github.com/Homital/Homital.github.io/workflows/lint/badge.svg)
-![deploy](https://github.com/Homital/Homital.github.io/workflows/deploy/badge.svg)
-[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Homital/Homital.github.io)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c2a3c076110741af9d79742ac5ead71c)](https://www.codacy.com/gh/Homital/docs/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Homital/docs&amp;utm_campaign=Badge_Grade)
+[![lint](https://github.com/Homital/docs/workflows/lint/badge.svg)](https://github.com/Homital/docs/actions/workflows/lint.yml)
+[![deploy](https://github.com/Homital/docs/workflows/deploy/badge.svg)](https://github.com/Homital/docs/actions/workflows/deploy.yml)
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Homital/docs)
 
 This repository holds Homital Documentations:
 
-<https://homital.github.io/>
+<https://docs.homital.ml/>
