@@ -1,7 +1,3 @@
 tasks:
   - init: yarn install
-    command: yarn docs:dev
-
-vscode:
-  extensions:
-    - vscodevim.vim@1.14.4:J23IcrsTBvg+A17bhXj3og==
+    command: yarn dev
